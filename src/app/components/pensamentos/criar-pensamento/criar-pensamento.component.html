@@ -9,14 +9,16 @@
         class="input" 
         id="pensamento" 
         name="pensamento" 
-        placeholder="Insira o pensamento">
+        placeholder="Insira o pensamento"
+        [value]="pensamento.conteudo">
         <label for="autoria">Autoria ou fonte</label>
         <input 
         type="text" 
         class="input" 
         id="autoria" 
         name="autoria" 
-        placeholder="Autoria ou fonte">
+        placeholder="Autoria ou fonte"
+        [value]="pensamento.autoria">
         <label for="modelo">Selecione o modelo do card:</label>
         <div class="container-radio">
             <div class="radio-modelo">
@@ -35,8 +37,8 @@
                 Prévia:
                 <div class="modelo modelo1 ff-roboto-mono">
                     <img src="../../../../assets/Img/modelo1.png" alt="Aspas azuis">
-                    <p class="conteudo">Conteúdo vai aqui</p>
-                    <p class="conteudo"><b>A autoria vai aqui</b></p>
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
                 </div>
             </div>
             <div class="radio-modelo">
@@ -55,8 +57,8 @@
                 Prévia:
                 <div class="modelo modelo2 ff-roboto-mono">
                     <img src="../../../../assets/Img/modelo2.png" alt="Aspas azuis claro">
-                    <p class="conteudo">Conteúdo vai aqui</p>
-                    <p class="conteudo"><b>A autoria vai aqui</b></p>
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
                 </div>
             </div>
             <div class="radio-modelo">
@@ -75,14 +77,14 @@
                 Prévia:
                 <div class="modelo modelo3 ff-roboto-mono">
                     <img src="../../../../assets/Img/modelo3.png" alt="Aspas verdes">
-                    <p class="conteudo">Conteúdo vai aqui</p>
-                    <p class="conteudo"><b>A autoria vai aqui</b></p>
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
                 </div>
             </div>
         </div>
         <div class="acoes">
-            <button class="botao">Salvar</button>
-            <button class="botao">Cancelar</button>
+            <button (click)="criarPensamento()" class="botao">Salvar</button>
+            <button (click)="cancelar()" class="botao">Cancelar</button>
         </div>
     </form>
 </section>
