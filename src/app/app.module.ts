@@ -6,6 +6,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CriarPensamentoComponent } from './components/pensamentos/criar-pensamento/criar-pensamento.component';
 import { ListarPensamentosComponent } from './components/pensamentos/listar-pensamentos/listar-pensamentos.component';
+import { FormsModule } from '@angular/forms';
+import { CardPensamentoComponent } from './components/pensamentos/card-pensamento/card-pensamento.component';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { ListarPensamentosComponent } from './components/pensamentos/listar-pens
     HeaderComponent,
     FooterComponent,
     CriarPensamentoComponent,
-    ListarPensamentosComponent
+    ListarPensamentosComponent,
+    CardPensamentoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

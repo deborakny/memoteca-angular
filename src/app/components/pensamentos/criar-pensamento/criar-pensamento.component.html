@@ -3,6 +3,19 @@
         <h2>Adicione um <br>pensamento:</h2>
     </header>
     <form>
+        <!--Property binding unidirecional (do component ao template)-->
+        <!--Associar o atributo 'pensamento' aos inputs-->
+        <!--O input possui uma propriedade chamada value (Ex.: value="pensamento.conteudo")
+        Dessa forma, o angular irá renderizar no campo a string "pensamento.conteudo",
+        de forma literal. Para que o angular associe o value ao atributo no component, usa-se
+        os '[]' (Ex.: [value]="pensamento.conteudo")-->
+
+        <!--Two-way Data Binding-->
+        <!--Ao invés de [value], usar o [(ngModel)], que é uma diretiva de atributo, que
+        permite modificar os elementos-->
+        <!--Essa diretiva faz parte do FormsModule. Importar no arquivo app.module.ts-->
+        <!--Dessa forma, ao alterar o template, o component também é alterado,
+        logo, ao mudar os inputs, a prévia é alterada simultaneamente-->
         <label for="pensamento">Pensamento</label>
         <input 
         type="textarea" 
@@ -10,7 +23,8 @@
         id="pensamento" 
         name="pensamento" 
         placeholder="Insira o pensamento"
-        [value]="pensamento.conteudo">
+        [(ngModel)]="pensamento.conteudo">
+
         <label for="autoria">Autoria ou fonte</label>
         <input 
         type="text" 
@@ -18,7 +32,8 @@
         id="autoria" 
         name="autoria" 
         placeholder="Autoria ou fonte"
-        [value]="pensamento.autoria">
+        [(ngModel)]="pensamento.autoria">
+
         <label for="modelo">Selecione o modelo do card:</label>
         <div class="container-radio">
             <div class="radio-modelo">
@@ -28,11 +43,13 @@
                     id="modelo1"
                     value="modelo1"
                     name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
                     >
                     <div class="custom-radio">
                         <span></span>
                     </div>
                     <span>Modelo 1</span>
+
                 </label>
                 Prévia:
                 <div class="modelo modelo1 ff-roboto-mono">
@@ -48,6 +65,7 @@
                     id="modelo2"
                     value="modelo2"
                     name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
                     >
                     <div class="custom-radio">
                         <span></span>
@@ -68,6 +86,7 @@
                     id="modelo3"
                     value="modelo3"
                     name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
                     >
                     <div class="custom-radio">
                         <span></span>
@@ -77,14 +96,16 @@
                 Prévia:
                 <div class="modelo modelo3 ff-roboto-mono">
                     <img src="../../../../assets/Img/modelo3.png" alt="Aspas verdes">
+                    <!--Property bindging com a tag p-->
                     <p class="conteudo">{{pensamento.conteudo}}</p>
                     <p class="autoria"><b>{{pensamento.autoria}}</b></p>
                 </div>
             </div>
         </div>
         <div class="acoes">
-            <button (click)="criarPensamento()" class="botao">Salvar</button>
-            <button (click)="cancelar()" class="botao">Cancelar</button>
+            <!--Event binding (click) - unidirecional - do template ao component-->
+            <button (click)="criarPensamento()" class="botao">Salvar</button> 
+            <button routerLink="/#" class="botao">Cancelar</button>
         </div>
     </form>
 </section>

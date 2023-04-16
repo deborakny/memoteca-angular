@@ -1,6 +1,21 @@
 <section class="container">
     <header class="header d-flex">
         <h2 class="ff-inter">Meu Mural</h2>
-        <button class="botao">Adicionar Pensamento</button>
+        <!--Ao adicionar a diretiva routerLink="" em um elemento, ele se 
+            transforma em um link, possibilitando a navegação -->
+        <!--routerLink="nome do path em app-routing.module.ts"-->
+        <button routerLink="/criar-pensamento" class="botao">Adicionar Pensamento</button>
     </header>
+
+    <div class="mural">
+        <div *ngFor="let pensamento of listaPensamentos">
+            <!--listar-pensamento atua como componente pai-->
+            <!--card-pensamento atua como componente filho-->
+            <!--deve-se passar os dados da listaPensamentos para o
+            component card-pensamento-->
+            <!--[pensamento] - propriedade que está no card-pensamento,
+            recebe a variável local, pensamento-->
+            <app-card-pensamento [pensamento]="pensamento"></app-card-pensamento>
+        </div>
+    </div>
 </section>

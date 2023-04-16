@@ -7,4 +7,30 @@ import { Component } from '@angular/core';
 })
 export class ListarPensamentosComponent {
 
+  listaPensamentos = [
+    {
+      conteudo: 'Angular',
+      autoria: 'Debs',
+      modelo: 'modelo1'
+    },
+    {
+      conteudo: 'Comunicação entre componentes',
+      autoria: 'Debs',
+      modelo: 'modelo2'
+    },
+    {
+      conteudo: 'NgFor',
+      autoria: 'Debs',
+      modelo: 'modelo3'
+    },
+  ];
+
+  constructor() {
+    
+  }
+
+  ngOnInit(): void{
+
+  }
+
 }

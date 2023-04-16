@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CriarPensamentoComponent {
 
-  pensamento = {
+  //atributo
+  pensamento = { //objeto que possui as seguintes propriedades
     id: '1',
     conteudo: 'Aprendendo angular',
     autoria: 'Dev',
-    modelo: ''
+    modelo: 'modelo1'
   }
 
   constructor() {
@@ -24,10 +25,6 @@ export class CriarPensamentoComponent {
 
   criarPensamento() {
     alert("Novo pensamento criado");
-  }
-
-  cancelar() {
-    alert("Cancelado");
   }
 
 }

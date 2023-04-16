@@ -1,0 +1,17 @@
+<!--a interpolação está sendo utilizada para renderizar o modelo, que está no 
+    typescript (o modelo é passado ao html e utiliza o estilo de acordo com o
+    tipo de modelo escolhido)-->
+<div class="pensamento {{ pensamento.modelo }} ff-roboto-mono pensamento-p">
+    <!--a interpolação é usada, pois a imagem muda de acordo com o modelo escolhido-->
+    <img src="../../../../assets/Img/{{ pensamento.modelo }}.png" alt="Aspas coloridas">
+    <p class="conteudo">{{ pensamento.conteudo }}</p>
+    <p class="autoria"><b>{{ pensamento.autoria }}</b></p>
+    <div class="acoes">
+        <button class="botao-editar">
+            <img src="../../../../assets/Img/icone-editar.png" alt="ícone de editar">
+        </button>
+        <button class="botao-excluir">
+            <img src="../../../../assets/Img/icone-excluir.png" alt="ícone de excluir">
+        </button>
+    </div>
+</div>
