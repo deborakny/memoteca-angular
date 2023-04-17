@@ -1,0 +1,22 @@
+{
+    "pensamentos":[
+        {
+            "id": 1,
+            "conteudo": "Seja bem vindo",
+            "autoria": "Debs",
+            "modelo": "modelo1"
+        },
+        {
+            "id": 2,
+            "conteudo": "Bora almoçar",
+            "autoria": "Debs",
+            "modelo": "modelo2"
+        },
+        {
+            "id": 3,
+            "conteudo": "Panqueca de carne",
+            "autoria": "Debs",
+            "modelo": "modelo3"
+        }
+    ]
+}

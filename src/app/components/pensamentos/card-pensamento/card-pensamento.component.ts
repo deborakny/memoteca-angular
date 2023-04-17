@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Pensamento } from '../pensamento';
 
 @Component({
   selector: 'app-card-pensamento',
@@ -9,7 +10,9 @@ export class CardPensamentoComponent {
   
   //@Input() faz com que a propriedade receba informações 
   //do componente pai(listar - pensamento)
-  @Input() pensamento = { 
+  @Input() pensamento: Pensamento = { //Interface Pensamento
+    //Esses dados não estão sendo utilizados, pois eles veem do componente pai (listar-pensamento)
+    id: 0,
     conteudo: 'Angular',
     autoria: 'Debs',
     modelo: 'modelo1'
@@ -21,6 +24,13 @@ export class CardPensamentoComponent {
 
   ngOnInit(): void{
 
+  }
+
+  larguraPensamento(): string{
+    if (this.pensamento.conteudo.length >= 256) {
+      return 'pensamento-g'
+    }
+    return 'pensamento-p'
   }
 
 }
