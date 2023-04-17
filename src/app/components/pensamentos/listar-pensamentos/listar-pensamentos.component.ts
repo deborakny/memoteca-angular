@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pensamento } from '../pensamento';
+import { PensamentoService } from '../pensamento.service';
 
 @Component({
   selector: 'app-listar-pensamentos',
@@ -33,12 +34,16 @@ export class ListarPensamentosComponent {
     return this.listaPensamentos.length > 0;  
   }
 
-  constructor() {
+  constructor(private service: PensamentoService) {
     
   }
 
-  ngOnInit(): void{
-
-  }
+  ngOnInit(): void{ //toda a lógica que será executada assim que o component for carregado
+    //subscribe informa que há "interesse" nessas informações da api
+    //com o subscribe, o observable entende que é necessário emitir notificações sempre que houver uma mudança
+    this.service.listar().subscribe((listaPensamentos) => { 
+      this.listaPensamentos = listaPensamentos; //a variável local "listaPensamentos" irá receber a "listaPensamentos" que será obtida no observable
+    }); 
+  }  
 
 }
