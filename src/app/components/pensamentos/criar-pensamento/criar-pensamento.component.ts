@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PensamentoService } from '../pensamento.service';
 import { Route, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -27,18 +27,34 @@ export class CriarPensamentoComponent {
 
   ngOnInit(): void{
     this.formulario = this.fb.group({
-      conteudo: [''],
-      autoria: [''],
-      modelo: [''],
+      conteudo: ['', Validators.compose([ //possui mais que uma validação
+        Validators.required,
+        Validators.pattern(/(.|\s)*\S(.|\s)*/) //não permite que sejam colocados apenas espaços vazios
+      ])],
+      autoria: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3) //deve ter no mínimo 3 dígitos
+      ])],
+      modelo: ['modelo1'],
     })
   }
 
   criarPensamento() {
-    //ao criar um novo pensamento, serão cadastradas as informações do formulário
-    this.service.criar(this.formulario.value).subscribe(() => {
-      this.router.navigate(['listar-pensamento'])
-    });
+    if (this.formulario.valid) { //se o formulário for válido
+      //ao criar um novo pensamento, serão cadastradas as informações do formulário
+      this.service.criar(this.formulario.value).subscribe(() => {
+        this.router.navigate(['listar-pensamento'])
+      });      
+    }
     
+  }
+
+  habilitarBotao(): string {
+    if (this.formulario.valid) {
+      return 'botao'; //se o formulário for válido, retorne a classe botao
+    } else {
+      return 'botao__desabilitado' //senão, retorne a classe botao desabilitado
+    }
   }
 
 }
