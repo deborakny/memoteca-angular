@@ -7,7 +7,7 @@
         <button routerLink="/criar-pensamento" class="botao">Adicionar Pensamento</button>
     </header>
 
-    <div class="mural">
+    <div class="mural" *ngIf="listaPensamentos.length > 0, else semPensamentos"> <!--A div é exibida se essa condição for cumprida-->
         <div *ngFor="let pensamento of listaPensamentos">
             <!--listar-pensamento atua como componente pai-->
             <!--card-pensamento atua como componente filho-->
@@ -19,3 +19,11 @@
         </div>
     </div>
 </section>
+
+<!--Para utilizar o else-->
+<ng-template #semPensamentos>
+    <div class="ff-inter sem-pensamentos">
+        <p>Ainda não há pensamentos cadastrados!</p>
+    </div>
+</ng-template>
+
