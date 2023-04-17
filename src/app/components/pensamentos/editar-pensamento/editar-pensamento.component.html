@@ -1,0 +1,111 @@
+<section class="container editar-pensamentos ff-inter">
+    <header class="header">
+        <h2>Editar <br>pensamento:</h2>
+    </header>
+    <form>
+        <!--Property binding unidirecional (do component ao template)-->
+        <!--Associar o atributo 'pensamento' aos inputs-->
+        <!--O input possui uma propriedade chamada value (Ex.: value="pensamento.conteudo")
+        Dessa forma, o angular irá renderizar no campo a string "pensamento.conteudo",
+        de forma literal. Para que o angular associe o value ao atributo no component, usa-se
+        os '[]' (Ex.: [value]="pensamento.conteudo")-->
+
+        <!--Two-way Data Binding-->
+        <!--Ao invés de [value], usar o [(ngModel)], que é uma diretiva de atributo, que
+        permite modificar os elementos-->
+        <!--Essa diretiva faz parte do FormsModule. Importar no arquivo app.module.ts-->
+        <!--Dessa forma, ao alterar o template, o component também é alterado,
+        logo, ao mudar os inputs, a prévia é alterada simultaneamente-->
+        <label for="pensamento">Pensamento</label>
+        <input 
+        type="textarea" 
+        class="input" 
+        id="pensamento" 
+        name="pensamento" 
+        placeholder="Insira o pensamento"
+        [(ngModel)]="pensamento.conteudo">
+
+        <label for="autoria">Autoria ou fonte</label>
+        <input 
+        type="text" 
+        class="input" 
+        id="autoria" 
+        name="autoria" 
+        placeholder="Autoria ou fonte"
+        [(ngModel)]="pensamento.autoria">
+
+        <label for="modelo">Selecione o modelo do card:</label>
+        <div class="container-radio">
+            <div class="radio-modelo">
+                <label for="modelo1">
+                    <input 
+                    type="radio"
+                    id="modelo1"
+                    value="modelo1"
+                    name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
+                    >
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 1</span>
+
+                </label>
+                Prévia:
+                <div class="modelo modelo1 ff-roboto-mono">
+                    <img src="../../../../assets/Img/modelo1.png" alt="Aspas azuis">
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
+                </div>
+            </div>
+            <div class="radio-modelo">
+                <label for="modelo2">
+                    <input 
+                    type="radio"
+                    id="modelo2"
+                    value="modelo2"
+                    name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
+                    >
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 2</span>
+                </label>
+                Prévia:
+                <div class="modelo modelo2 ff-roboto-mono">
+                    <img src="../../../../assets/Img/modelo2.png" alt="Aspas azuis claro">
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
+                </div>
+            </div>
+            <div class="radio-modelo">
+                <label for="modelo3">
+                    <input 
+                    type="radio"
+                    id="modelo3"
+                    value="modelo3"
+                    name="modelo-card"
+                    [(ngModel)]="pensamento.modelo"
+                    >
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Modelo 3</span>
+                </label>
+                Prévia:
+                <div class="modelo modelo3 ff-roboto-mono">
+                    <img src="../../../../assets/Img/modelo3.png" alt="Aspas verdes">
+                    <!--Property bindging com a tag p-->
+                    <p class="conteudo">{{pensamento.conteudo}}</p>
+                    <p class="autoria"><b>{{pensamento.autoria}}</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="acoes">
+            <!--Event binding (click) - unidirecional - do template ao component-->
+            <button (click)="editarPensamento()" class="botao">Salvar</button> 
+            <button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section>

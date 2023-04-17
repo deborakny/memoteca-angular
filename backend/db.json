@@ -2,18 +2,18 @@
   "pensamentos": [
     {
       "id": 2,
-      "conteudo": "Bora almoçar",
+      "conteudo": "Bora almoçar. Bora? 2",
       "autoria": "Debs",
       "modelo": "modelo2"
     },
     {
       "id": 3,
-      "conteudo": "Panqueca de carne",
+      "conteudo": "Panqueca de carne só que editado",
       "autoria": "Debs",
       "modelo": "modelo3"
     },
     {
-      "conteudo": "Quero café",
+      "conteudo": "Quero café <3",
       "autoria": "Eu",
       "modelo": "modelo1",
       "id": 4
