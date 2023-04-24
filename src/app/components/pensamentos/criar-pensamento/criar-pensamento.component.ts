@@ -59,4 +59,8 @@ export class CriarPensamentoComponent {
     }
   }
 
+  cancelar() {
+    this.router.navigate(['/listar-pensamento']);  
+  }
+
 }
